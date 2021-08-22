@@ -1,0 +1,162 @@
+<template>
+  <lightning-accordion allow-multiple-sections-open active-section-name="Important">
+    <lightning-accordion-section class="important-accordion" name="Important" label="重要事項">
+      <br>
+      <template if:true={record.data}>
+        <div class="slds-grid slds-wrap">
+
+          <div class="slds-col slds-size_1-of-8">
+            <span>要注意理由</span>
+          </div>
+          <div class="slds-col slds-size_7-of-8">
+            <div class="slds-text-body_small slds-border_bottom">
+              <template if:true={record.data.SPECIAL_ATENTION_REASON__c}>
+                <lightning-formatted-rich-text class="textsize" value={record.data.SPECIAL_ATENTION_REASON__c}></lightning-formatted-rich-text>
+              </template>
+              <template if:false={record.data.SPECIAL_ATENTION_REASON__c}>&nbsp;</template>
+            </div>
+          </div>
+          
+          <div class="slds-col slds-size_1-of-8">
+            <span>要注意区分</span>
+          </div>
+          <div class="slds-col slds-size_3-of-8">
+            <div class="slds-text-body_small slds-border_bottom">
+              <template if:true={record.data.SPECIAL_ATENTION_KBN__c}>
+                <lightning-formatted-text class="textsize" value={record.data.SPECIAL_ATENTION_KBN__c}></lightning-formatted-text>
+              </template>
+              <template if:false={record.data.SPECIAL_ATENTION_KBN__c}>&nbsp;</template>
+            </div>
+          </div>
+          <div class="slds-col slds-size_1-of-8">
+            <span>ブラック理由区分</span>
+          </div>
+          <div class="slds-col slds-size_3-of-8">
+            <div class="slds-text-body_small slds-border_bottom">
+              <template if:true={record.data.BLACK_REASON_KBN__c}>
+                <lightning-formatted-text class="textsize" value={record.data.BLACK_REASON_KBN__c}></lightning-formatted-text>
+              </template>
+              <template if:false={record.data.BLACK_REASON_KBN__c}>&nbsp;</template>
+            </div>
+          </div>
+
+          <div class="slds-col slds-size_1-of-8">
+            <span>預り金</span>
+          </div>
+          <div class="slds-col slds-size_3-of-8">
+            <div class="slds-text-body_small slds-border_bottom">
+              <template if:true={record.data.Deposit__c}>
+                <lightning-formatted-number class="textsize" value={record.data.Deposit__c}></lightning-formatted-number>
+              </template>
+              <template if:false={record.data.Deposit__c}>&nbsp;</template>
+            </div>
+          </div>
+          <div class="slds-col slds-size_1-of-8">
+            <span>滞納金額</span>
+          </div>
+          <div class="slds-col slds-size_3-of-8">
+            <div class="slds-text-body_small slds-border_bottom">
+              <template if:true={record.data.Arrears__c}>
+                <lightning-formatted-number class="textsize" value={record.data.Arrears__c}></lightning-formatted-number>
+              </template>
+              <template if:false={record.data.Arrears__c}>&nbsp;</template>
+            </div>
+          </div>
+
+          <div class="slds-col slds-size_1-of-8">
+            <span>保有</span>
+          </div>
+          <div class="slds-col slds-size_3-of-8">
+            <div class="slds-text-body_small slds-border_bottom">
+              <template if:true={record.data.Owned__c}>
+                <lightning-formatted-number class="textsize" value={record.data.Owned__c}></lightning-formatted-number>
+            </template>
+            <template if:false={record.data.Owned__c}>&nbsp;</template>
+            </div>
+          </div>
+          <div class="slds-col slds-size_1-of-8">
+            <span>当月失効</span>
+          </div>
+          <div class="slds-col slds-size_3-of-8">
+            <div class="slds-text-body_small slds-border_bottom">
+              <template if:true={record.data.Expires_At_This_Month__c}>
+                <lightning-formatted-number class="textsize" value={record.data.Expires_At_This_Month__c}></lightning-formatted-number>
+            </template>
+            <template if:false={record.data.Expires_At_This_Month__c}>&nbsp;</template>
+            </div>
+          </div>
+          
+          <div class="slds-col slds-size_1-of-8">
+            <span>累計購入額</span>
+          </div>
+          <div class="slds-col slds-size_3-of-8">
+            <div class="slds-text-body_small slds-border_bottom">
+              <template if:true={record.data.CuMulative_Aurchase_Amount__c}>
+                <lightning-formatted-number class="textsize" value={record.data.CuMulative_Aurchase_Amount__c}></lightning-formatted-number>
+              </template>
+              <template if:false={record.data.CuMulative_Aurchase_Amount__c}>&nbsp;</template>
+            </div>
+          </div>
+          <div class="slds-col slds-size_1-of-8">
+            <span>WEBログインID</span>
+          </div>
+          <div class="slds-col slds-size_3-of-8">
+            <div class="slds-text-body_small slds-border_bottom">
+              <template if:true={record.data.WEB_LOGIN_ID__c}>
+                <lightning-formatted-number class="textsize" value={record.data.WEB_LOGIN_ID__c}></lightning-formatted-number>
+              </template>
+              <template if:false={record.data.WEB_LOGIN_ID__c}>&nbsp;</template>
+            </div>
+          </div>
+
+          <div class="slds-col slds-size_1-of-8">
+            <span>ブラック顧客&nbsp;<lightning-helptext content="黒：ブラック顧客　　青：発送時確認あり　　　　　赤：対応注意"></lightning-helptext></span>
+          </div>
+          <div class="slds-col slds-size_3-of-8">
+            <div class="slds-text-body_small slds-border_bottom">
+              <template if:true={record.data.Black_Customer_IMG__c}>
+                <lightning-formatted-rich-text  value={record.data.Black_Customer_IMG__c}></lightning-formatted-rich-text>
+              </template>
+              <template if:false={record.data.Black_Customer_IMG__c}>&nbsp;</template>
+            </div>
+          </div>
+          <div class="slds-col slds-size_1-of-8">
+            <span>禁止事項&nbsp;<lightning-helptext content="緑：DM禁止　　黄：電話禁止　　赤：督促禁止　　紫：メルマガ禁止　　青：配信メール禁止"></lightning-helptext></span>
+          </div>
+          <div class="slds-col slds-size_3-of-8">
+            <div class="slds-text-body_small slds-border_bottom">
+              <template if:true={record.data.Prohibited_Matters_IMG__c}>
+                <lightning-formatted-rich-text value={record.data.Prohibited_Matters_IMG__c}></lightning-formatted-rich-text>
+              </template>
+              <template if:false={record.data.Prohibited_Matters_IMG__c}>&nbsp;</template>
+            </div>
+          </div>
+
+          <div class="slds-col slds-size_1-of-8">
+            <span>長期利用顧客&nbsp;<lightning-helptext content="「長期利用フラグ」がオンの場合にアイコン表示"></lightning-helptext></span>
+          </div>
+          <div class="slds-col slds-size_3-of-8">
+            <div class="slds-text-body_small slds-border_bottom">
+              <template if:true={record.data.Long_Term_User_IMG__c}>
+                <lightning-formatted-rich-text value={record.data.Long_Term_User_IMG__c}></lightning-formatted-rich-text>
+              </template>
+              <template if:false={record.data.Long_Term_User_IMG__c}>&nbsp;</template>
+            </div>
+          </div>
+          <div class="slds-col slds-size_1-of-8">
+            <span>ロイヤル顧客&nbsp;<lightning-helptext content="「ロイヤル顧客フラグ」がオンの場合にアイコン表示"></lightning-helptext></span>
+          </div>
+          <div class="slds-col slds-size_3-of-8">
+            <div class="slds-text-body_small slds-border_bottom">
+              <template if:true={record.data.Royal_Customer_IMG__c}>  
+                <lightning-formatted-rich-text value={record.data.Royal_Customer_IMG__c}></lightning-formatted-rich-text>
+              </template>
+              <template if:false={record.data.Royal_Customer_IMG__c}>&nbsp;</template>
+            </div>
+          </div>
+        
+        </div>
+      </template>
+    </lightning-accordion-section>
+  </lightning-accordion>
+</template>

@@ -1,0 +1,229 @@
+<template>
+    <lightning-accordion allow-multiple-sections-open active-section-name="Important">
+      <lightning-accordion-section class="important-accordion" name="Important" label="重要事項">
+        <template if:true={record.data}>
+            <div class="slds-form" role="list">
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-hint-parent slds-col">
+                            <span class="slds-form-element__label">要注意理由</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static"><lightning-formatted-text value={SPECIAL_ATENTION_REASON}></lightning-formatted-text></div>
+                                <button class="slds-button slds-button_icon" title="Edit: Status">
+                                    <svg class="slds-button__icon slds-button__icon_hint" aria-hidden="true">
+                                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">クリックすると編集できるよ</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-hint-parent slds-col">
+                            <span class="slds-form-element__label">要注意区分</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">{SPECIAL_ATENTION_KBN}</div>
+                                <button class="slds-button slds-button_icon" title="Edit: Status">
+                                    <svg class="slds-button__icon slds-button__icon_hint" aria-hidden="true">
+                                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">クリックすると編集できるよ</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-hint-parent slds-col">
+                            <span class="slds-form-element__label">ブラック理由区分</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">{BLACK_REASON_KBN}</div>
+                                <button class="slds-button slds-button_icon" title="Edit: Status">
+                                    <svg class="slds-button__icon slds-button__icon_hint" aria-hidden="true">
+                                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">クリックすると編集できるよ</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-hint-parent slds-col">
+                            <span class="slds-form-element__label">預り金</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">{Deposit}</div>
+                                <button class="slds-button slds-button_icon" title="Edit: Status">
+                                    <svg class="slds-button__icon slds-button__icon_hint" aria-hidden="true">
+                                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">クリックすると編集できるよ</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-hint-parent slds-col">
+                            <span class="slds-form-element__label">滞納金額</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">{Arrears}</div>
+                                <button class="slds-button slds-button_icon" title="Edit: Status">
+                                    <svg class="slds-button__icon slds-button__icon_hint" aria-hidden="true">
+                                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">クリックすると編集できるよ</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-hint-parent slds-col">
+                            <span class="slds-form-element__label">保有</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">{Owned}</div>
+                                <button class="slds-button slds-button_icon" title="Edit: Status">
+                                    <svg class="slds-button__icon slds-button__icon_hint" aria-hidden="true">
+                                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">クリックすると編集できるよ</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-hint-parent slds-col">
+                            <span class="slds-form-element__label">当月失効</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">{Expires_At_This_Month}</div>
+                                <button class="slds-button slds-button_icon" title="Edit: Status">
+                                    <svg class="slds-button__icon slds-button__icon_hint" aria-hidden="true">
+                                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">クリックすると編集できるよ</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-hint-parent slds-col">
+                            <span class="slds-form-element__label">累計購入額</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">{CuMulative_Aurchase_Amount}</div>
+                                <button class="slds-button slds-button_icon" title="Edit: Status">
+                                    <svg class="slds-button__icon slds-button__icon_hint" aria-hidden="true">
+                                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">クリックすると編集できるよ</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-hint-parent slds-col">
+                            <span class="slds-form-element__label">WEBログインID</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">{WEB_LOGIN_ID}</div>
+                                <button class="slds-button slds-button_icon" title="Edit: Status">
+                                    <svg class="slds-button__icon slds-button__icon_hint" aria-hidden="true">
+                                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">クリックすると編集できるよ</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-hint-parent slds-col">
+                            <span class="slds-form-element__label">ブラック顧客&nbsp;<lightning-helptext content="黒：ブラック顧客　　青：発送時確認あり　　　　　赤：対応注意"></lightning-helptext></span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">{Black_Customer_IMG}</div>
+                                <button class="slds-button slds-button_icon" title="Edit: Status">
+                                    <svg class="slds-button__icon slds-button__icon_hint" aria-hidden="true">
+                                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">クリックすると編集できるよ</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-hint-parent slds-col">
+                            <span class="slds-form-element__label">禁止事項&nbsp;<lightning-helptext content="緑：DM禁止　　黄：電話禁止　　赤：督促禁止　　紫：メルマガ禁止　　青：配信メール禁止"></lightning-helptext></span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">{Prohibited_Matters_IMG}</div>
+                                <button class="slds-button slds-button_icon" title="Edit: Status">
+                                    <svg class="slds-button__icon slds-button__icon_hint" aria-hidden="true">
+                                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">クリックすると編集できるよ</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-hint-parent slds-col">
+                            <span class="slds-form-element__label">長期利用顧客&nbsp;<lightning-helptext content="「長期利用フラグ」がオンの場合にアイコン表示"></lightning-helptext></span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">{Long_Term_User_IMG}</div>
+                                <button class="slds-button slds-button_icon" title="Edit: Status">
+                                    <svg class="slds-button__icon slds-button__icon_hint" aria-hidden="true">
+                                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">クリックすると編集できるよ</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-hint-parent slds-col">
+                            <span class="slds-form-element__label">ロイヤル顧客&nbsp;<lightning-helptext content="「ロイヤル顧客フラグ」がオンの場合にアイコン表示"></lightning-helptext></span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">{Royal_Customer_IMG}</div>
+                                <button class="slds-button slds-button_icon" title="Edit: Status">
+                                    <svg class="slds-button__icon slds-button__icon_hint" aria-hidden="true">
+                                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">クリックすると編集できるよ</span>
+                               </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <lightning-record-view-form object-api-name={objectApiName} record-id={recordId}>
+                <!-- 以下、”lightning-output-field”を使用した表示画面。 -->
+                <lightning-output-field field-name={SPECIAL_ATENTION_REASON_Field}></lightning-output-field>
+                <lightning-output-field field-name={SPECIAL_ATENTION_KBN_Field}></lightning-output-field>
+                <lightning-output-field field-name={BLACK_REASON_KBN_Field}></lightning-output-field>
+                <lightning-output-field field-name={Deposit_Field}></lightning-output-field>
+                <lightning-output-field field-name={Arrears_Field}></lightning-output-field>
+                <lightning-output-field field-name={Owned_Field}></lightning-output-field>
+                <lightning-output-field field-name={Expires_At_This_Month_Field}></lightning-output-field>
+                <lightning-output-field field-name={CuMulative_Aurchase_Amount_Field}></lightning-output-field>
+                <lightning-output-field field-name={WEB_LOGIN_ID_Field}></lightning-output-field>
+                <lightning-output-field field-name={Black_Customer_IMG_Field}></lightning-output-field>
+                <lightning-output-field field-name={Prohibited_Matters_IMG_Field}></lightning-output-field>
+                <lightning-output-field field-name={Long_Term_User_IMG_Field}></lightning-output-field>
+                <lightning-output-field field-name={Royal_Customer_IMG_Field}></lightning-output-field>
+            </lightning-record-view-form> 
+        </template>
+      </lightning-accordion-section>
+    </lightning-accordion>
+  </template>
